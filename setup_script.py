@@ -1,5 +1,7 @@
 #!/bin/bash
 
+trap handle_exit_signal SIGINT
+
 setup_project() {
     echo "=== Deploy agent NTAKIRUTIMANA Kelvin ==="
 
