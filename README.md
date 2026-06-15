@@ -75,7 +75,7 @@ It also validates that the required directory structure was successfully created
 
 ### 4. Process Management (Signal Trap)
 
-The script handles interruptions gracefully using:
+The script handles interruptions gracefully using trap and the handle_exit_signal function
 
 
 ## How to Run
