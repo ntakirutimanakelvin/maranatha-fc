@@ -96,3 +96,15 @@ run_diagnostics() {
     check_path "$root_dir/resources/config.json" "Configuration File"
     check_path "$root_dir/logs/reports.log" "Report Log"
 }
+
+check_path() {
+    local target="$1"
+    local description="$2"
+
+    if [ -e "$target" ]
+    then
+        echo "Present: $description"
+    else
+        echo "MISSING: $description"
+    fi
+}
