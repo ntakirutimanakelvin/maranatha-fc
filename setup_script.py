@@ -72,3 +72,27 @@ configure_thresholds() {
 
     run_diagnostics
 }
+
+run_diagnostics() {
+    echo ""
+    echo "=== Environment Verification ==="
+
+    printf "Checking Python installation... "
+
+    if command -v python3 >/dev/null 2>&1
+    then
+        echo "Python is AVAILABLE"
+        python3 --version
+    else
+        echo "Python is NOT DETECTED"
+    fi
+
+    echo ""
+    echo "Verifying workspace contents..."
+
+    check_path "$root_dir" "Workspace Directory"
+    check_path "$root_dir/attendance_checker.py" "Main Python Script"
+    check_path "$root_dir/resources/assets.csv" "Asset Data File"
+    check_path "$root_dir/resources/config.json" "Configuration File"
+    check_path "$root_dir/logs/reports.log" "Report Log"
+}
